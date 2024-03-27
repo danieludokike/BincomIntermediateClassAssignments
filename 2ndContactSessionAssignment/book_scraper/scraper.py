@@ -9,9 +9,9 @@ import time
 
 
 class Scraper:
-    def __init__(self, path, pages_to_scrape):
+    def __init__(self, pages_to_scrape):
         self._pages_to_scrape = pages_to_scrape
-        self._DRIVER_PATH = path
+        # self._DRIVER_PATH = path
         self._df = {
                     "Book Name"             : [],
                     "Price"                 : [],
@@ -41,7 +41,7 @@ class Scraper:
         
         
     def _initialize_driver(self):
-        chrome_service = webdriver.ChromeService(executable_path=self._DRIVER_PATH)
+        chrome_service = webdriver.ChromeService()
         # options = webdriver.ChromeOptions()
         return webdriver.Chrome(service=chrome_service)
     
@@ -113,10 +113,10 @@ class Scraper:
 
 
 # Implementation
-DRIVER_PATH = "chromedriver_win32/chromedriver.exe"
+DRIVER_PATH = "chromedriver.exe"
 pages_to_scrape = 5
 
-scraper = Scraper(DRIVER_PATH, pages_to_scrape)
+scraper = Scraper(pages_to_scrape)
 scraper.scrape()
             
         

@@ -8,8 +8,8 @@ import pandas as pd
 
 
 class QuoteScraper:
-    def __init__(self, path):
-        self._DRIVER_PATH = path
+    def __init__(self):
+        # self._DRIVER_PATH = path
         self._authors_details = {
                     "Name"             : [],
                     "Nationality"      : [],
@@ -30,7 +30,7 @@ class QuoteScraper:
         
         
     def _initialize_driver(self):
-        chrome_service = webdriver.ChromeService(executable_path=self._DRIVER_PATH)
+        chrome_service = webdriver.ChromeService()
         # options = webdriver.ChromeOptions()
         return webdriver.Chrome(service=chrome_service)
     
@@ -80,8 +80,8 @@ class QuoteScraper:
 
 
 # Implementation
-DRIVER_PATH = "chromedriver_win32/chromedriver.exe"
-scraper = QuoteScraper(DRIVER_PATH)
+# DRIVER_PATH = "chromedriver_win32/chromedriver.exe"
+scraper = QuoteScraper()
 scraper.scrape_quotes()
 
 
